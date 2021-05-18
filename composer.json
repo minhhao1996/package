@@ -1,46 +1,60 @@
 {
     "name": "minhhao/package",
-    "description": "A package demo",
     "type": "package",
+    "description": "The Laravel package of Minh Hao.",
+    "keywords": ["framework", "laravel","package"],
     "license": "MIT",
-    "keywords": [
-        "laravel"
-    ],
-    "homepage": "https://github.com/minhhao1996/package",
-    "authors": [
-        {
-            "name": "Minh Hao",
-            "email": "haole042@gmail.com"
-        }
-    ],
     "require": {
-        "illuminate/support": "^7.0|^8.0",
-        "illuminate/console": "^7.0|^8.0",
-        "illuminate/filesystem": "^7.0|^8.0"
+        "php": "^7.3|^8.0",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/framework": "^8.40",
+        "laravel/tinker": "^2.5"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {
         "psr-4": {
-            "MinhHao\\Demo\\": "./src"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
-    "minimum-stability": "dev",
     "autoload-dev": {
         "psr-4": {
-            "MinhHao\\Demo\\Tests\\": "tests"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "MinhHao\\Demo\\DemoServiceProvider"
-            ]
+            "dont-discover": []
         }
     },
-    "require-dev": {
-        "orchestra/testbench": "^5.0|^6.0",
-        "mockery/mockery": "^1.4"
-    }
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
+
