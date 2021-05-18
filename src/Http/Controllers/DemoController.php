@@ -1,6 +1,6 @@
 <?php
 
-namespace Module\Demo\Http\Controllers;
+namespace MinhHao\Demo\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use MinhHao\Demo\Models\Demo;
@@ -14,6 +14,6 @@ class DemoController extends Controller
     {
         Demo::create(['name' => 'Demo ' . time()]);
         
-        return view('module-demo::index');
+        return view('package-demo::index');
     }
 }
