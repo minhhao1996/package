@@ -1,0 +1,46 @@
+{
+    "name": "minhhao/package",
+    "description": "A package demo",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "laravel"
+    ],
+    "homepage": "https://github.com/minhhao1996/package",
+    "authors": [
+        {
+            "name": "Minh Hao",
+            "email": "haole042@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^7.0|^8.0",
+        "illuminate/console": "^7.0|^8.0",
+        "illuminate/filesystem": "^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MinhHao\\Demo\\": "./src"
+        }
+    },
+    "minimum-stability": "dev",
+    "autoload-dev": {
+        "psr-4": {
+            "MinhHao\\Demo\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MinhHao\\Demo\\DemoServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0",
+        "mockery/mockery": "^1.4"
+    }
+}
